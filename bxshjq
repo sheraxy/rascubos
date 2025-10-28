@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() {
+    int prim_numero = 0, segund_numero = 1, terc_numero = 2, i, numero;
+
+    printf("Quantos termos da sequência de Fibonacci você quer ver: ");
+    scanf("%d", &numero);
+
+    if (numero <= 0) {
+        printf("Por favor, insira um número maior que 0.\n");
+        return 1;
+    }
+
+    printf("Sequência de Fibonacci:\n");
+
+    if (numero >= 1) printf("%d ", prim_numero);     // 0
+    if (numero >= 2) printf("%d ", segund_numero);    // 1
+    if (numero >= 3) printf("%d ", terc_numero);     // 2
+
+    prim_numero = segund_numero;
+    segund_numero = terc_numero;
+
+    for (i = 3; i < numero; i++) {
+        terc_numero = prim_numero + segund_numero;
+        printf("%d ", terc_numero);
+        prim_numero = segund_numero;
+        segund_numero = terc_numero;
+    }
+
+    printf("\n");
+    return 0;
+}
